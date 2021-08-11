@@ -24,7 +24,7 @@ function App() {
     fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${count}`)
       .then((response) => response.json())
       .then((info) => setData(info))
-      .then(() => console.log(data));
+      .then((res) => console.log(data));
   }, [offset, count]);
 
   return (
@@ -35,12 +35,7 @@ function App() {
       <Radio ten={ten} twentyfive={twentyfive} hundred={hundred} />
 
       {data && (
-        <List
-          data={data}
-          count={count}
-          offset={offset}
-          setCount={setCount}
-        />
+        <List data={data} count={count} offset={offset} setCount={setCount} />
       )}
 
       <div class="d-grid gap-2 d-md-block">
